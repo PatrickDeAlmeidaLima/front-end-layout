@@ -8,11 +8,13 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->only(['email', 'password']);
+        $credentials = $request->only(['email', 'password', 'remember']);
 
         if ($credentials['email'] == 'admin@admin.com' && $credentials['password'] == '123') {
+            $accessToken = 'token_gerado_pelo_backend';
+
             return response()->json([
-                'access_token' => 'token_gerado_pelo_backend', 
+                'access_token' => $accessToken,
                 'token_type' => 'bearer',
                 'expires_in' => 3600
             ]);

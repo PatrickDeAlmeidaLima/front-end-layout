@@ -1,17 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
   background-color: #f0f0f0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .login-container {
-  display: flex;
-  width: 800px;
+  display: grid;
+  grid-template-columns: 2fr 1.3fr;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-height: 100vh;
+  align-items: stretch;
 }
 
 .login-image img {
@@ -20,50 +27,143 @@ body {
   object-fit: cover;
 }
 
-.login-form {
+.login-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form-content {
   padding: 20px;
   background-color: #fff;
   width: 100%;
 }
 
-.login-form h2 {
+@media (max-width: 768px) {
+  .login-image  {
+    display: none;
+  }
+
+}
+
+.rounded-input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.rounded-input:focus {
+  border-color: #007BFF;
+}
+
+
+.first-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.login-form-content h2 {
   margin-bottom: 20px;
+}
+
+.welcome-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.logo-container {
+  flex: 1;
+}
+
+.logo-container img {
+  max-width: 100px;
+}
+
+.welcome-text {
+  flex: 2;
+  text-align: left;
 }
 
 .social-login {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .social-btn {
-  padding: 10px;
-  width: 24%;
+  display: inline-block;
+  border: 2px solid #000;
+  border-radius: 15px;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.social-btn img {
+  display: block;
+  width: 100%;
+}
+
+.social-btn:hover {
+  border-color: #4CAF50;
+
+}
+
+.social-btn.Tz {
+  padding: 6px 42px 6px 42px;
+}
+
+.social-btn.facebook {
+  padding: 6px 42px 6px 42px;
+}
+
+.social-btn.Twitter {
+  padding: 6px 42px 6px 42px;
+}
+
+.social-btn.Apple {
+  padding: 6px 42px 6px 42px;
+}
+
+
+.or-divider {
+  display: flex;
   text-align: center;
-  color: #fff;
-  border-radius: 5px;
-  text-decoration: none;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
-.facebook {
-  background-color: #3b5998;
+.or-divider span {
+  display: inline-block;
+  padding: 0 10px;
+  font-weight: bold;
+  color: #777;
 }
 
-.pinterest {
-  background-color: #bd081c;
-}
-
-.google {
-  background-color: #db4a39;
-}
-
-.twitter {
-  background-color: #55acee;
+.divider-line {
+  width: 100%;
+  border-top: 1px solid #bbb;
 }
 
 .form-group {
   margin-bottom: 15px;
 }
+
+.keep-login {
+  display: -webkit-inline-box;
+}
+
+.keep-login label {
+  margin-left: 8px;
+}
+
 
 .form-group label {
   display: block;
@@ -81,7 +181,7 @@ body {
 button {
   width: 100%;
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #0761e2;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -89,7 +189,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #5251aa69;
 }
 
 a {
@@ -101,4 +201,193 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.regular-font {
+  font-family: 'Inter', sans-serif;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.open {
+  display: block;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-image {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.login-image img {
+  width: 100%;
+  height: auto;
+}
+
+.text-left {
+  position: absolute;
+  bottom: 60px;
+  left: 10px;
+  display: flex;
+  padding: 25px;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  color: #fff;
+}
+
+.bottom-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-left button.theme-button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  width: 105px;
+  height: 26px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.bottom-left p {
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 30px;
+  color: #909090;
+}
+
+.carousel {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+}
+
+.carousel-bullets {
+  top: 35px;
+  left: 10px;
+  display: flex;
+  position: relative;
+  bottom: 0;
+}
+
+.carousel-bullets span {
+  width: 80px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 20%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-bullets span.active {
+  background-color: #007BFF;
+}
+
+.carousel-controls {
+  position: relative;
+  left: 248%;
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+  padding: 0 10px;
+}
+
+.carousel-controls button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev-button {
+  align-self: flex-start;
+}
+
+.next-button {
+  align-self: flex-end;
+}
+
+.dark-mode-button {
+  width: 50px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+  border: 1px solid;
+}
+
+.dark-mode-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.login-image.dark-mode .text-left {
+  color: #000;
+}
+
+.login-image.dark-mode .bottom-left button.theme-button {
+  background-color: #333;
+
+  color: #fff;
+}
+
+.login-image.dark-mode .bottom-left p {
+  color: #ccc;
+}
+
+.login-image.dark-mode .carousel-bullets span {
+  background-color: #333;
+}
+
+.login-image.dark-mode .carousel-bullets span.active {
+  background-color: #007BFF;
+}
+
+.login-image.dark-mode .carousel-controls button {
+  color: #fff;
 }
